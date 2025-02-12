@@ -34,7 +34,7 @@
             let summary = document.getElementById("summary").value;
             let actions = document.getElementById("actions").value;
             
-            let message = `*Toplantı Başlığı:* ${title}\n *Tarih:* ${date}\n\n *Özet:*\n${summary}\n\n *Önemli Kararlar & Aksiyonlar:*\n${actions}`;
+            let message = `*Toplantı Başlığı:* ${title}\n*Tarih:* ${date}\n\n*Özet:*\n${summary}\n\n*Önemli Kararlar & Aksiyonlar:*\n${actions}`;
             
             let encodedMessage = encodeURIComponent(message);
             let whatsappURL = `https://wa.me/?text=${encodedMessage}`;
