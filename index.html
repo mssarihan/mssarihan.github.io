@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toplantı Özet Notu</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 500px; margin: auto; padding: 20px; }
+        label, textarea, input, button { display: block; width: 100%; margin-bottom: 10px; }
+        textarea { height: 100px; }
+        button { background-color: green; color: white; padding: 10px; border: none; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h2>Toplantı Özet Notu</h2>
+    <label>Toplantı Başlığı:</label>
+    <input type="text" id="title" placeholder="Başlık giriniz">
+    
+    <label>Tarih:</label>
+    <input type="date" id="date">
+    
+    <label>Özet:</label>
+    <textarea id="summary" placeholder="Toplantı özetini yazınız..."></textarea>
+    
+    <label>Önemli Kararlar & Aksiyonlar:</label>
+    <textarea id="actions" placeholder="Alınan kararları yazınız..."></textarea>
+    
+    <button onclick="sendToWhatsApp()">WhatsApp Grubuna Gönder</button>
+    
+    <script>
+        function sendToWhatsApp() {
+            let title = document.getElementById("title").value;
+            let date = document.getElementById("date").value;
+            let summary = document.getElementById("summary").value;
+            let actions = document.getElementById("actions").value;
+            
+            let message = `*Toplantı Başlığı:* ${title}\n *Tarih:* ${date}\n\n *Özet:*\n${summary}\n\n *Önemli Kararlar & Aksiyonlar:*\n${actions}`;
+            
+            let encodedMessage = encodeURIComponent(message);
+            let whatsappURL = `https://wa.me/?text=${encodedMessage}`;
+            
+            window.open(whatsappURL, '_blank');
+        }
+    </script>
+</body>
+</html>
